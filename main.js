@@ -36,6 +36,24 @@ heightButton.addEventListener("click", startGameHeight)
 //statsButton.addEventListener("click", startGame)
 experienceButton.addEventListener("click", startGameExp)
 
+let resultHeader = document.querySelector("#result")
+
+function intoBattle() {
+    fetchButton.style.display = "none"
+    weightButton.style.display = "inline-block"
+    heightButton.style.display = "inline-block"
+    //statsButton.style.display = "inline-block"
+    experienceButton.style.display = "inline-block"
+}
+
+function outtaBattle() {
+    fetchButton.style.display = "inline-block"
+    weightButton.style.display = "none"
+    heightButton.style.display = "none"
+    //statsButton.style.display = "none"
+    experienceButton.style.display = "none"
+}
+
 function startGameWeight() {
     gamesPlayedCount++;
     gamesPlayedData.innerText = `Games Played:  ${gamesPlayedCount} `;
@@ -43,6 +61,7 @@ function startGameWeight() {
         console.log("player loses");
         gamesLostcount++;
         gamesLostData.innerText = `Games Lost: ${gamesLostcount}`;
+        //resultHeader.innerText = `Player wins with Weight ${}`
     } else if (playerCardAttributes[0] === computerCardAttributes[0]) {
         gamesDrawnCount++;
         gamesDrawnData.innerText = `Games Drawn: ${gamesDrawnCount}`;
@@ -50,6 +69,8 @@ function startGameWeight() {
         gamesWonCount++;
         gamesWonData.innerText = `Games Won: ${gamesWonCount}`;
     }
+    outtaBattle()
+
 }
 function startGameHeight() {
     gamesPlayedCount++;
@@ -65,6 +86,7 @@ function startGameHeight() {
         gamesWonCount++;
         gamesWonData.innerText = `Games Won: ${gamesWonCount}`;
     }
+    outtaBattle()
 }
 function startGameExp() {
     gamesPlayedCount++;
@@ -80,6 +102,7 @@ function startGameExp() {
         gamesWonCount++;
         gamesWonData.innerText = `Games Won: ${gamesWonCount}`;
     }
+    outtaBattle()
 }
 
 
@@ -94,11 +117,7 @@ function startGameExp() {
 
 async function getData() {
 
-    fetchButton.style.display = "none"
-    weightButton.style.display = "inline-block"
-    heightButton.style.display = "inline-block"
-    //statsButton.style.display = "inline-block"
-    experienceButton.style.display = "inline-block"
+    intoBattle()
 
     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     let shuffArr = shuffle(arr)
@@ -126,13 +145,13 @@ let computerCardAttributes = []
 function dealPlayerCard(name, weight, height, base_experience) {
     playerCardAttributes.push(weight, height, base_experience)
     let newLi = document.createElement("li");
-    newLi.innerText = `Name:${name} Weight: ${weight}`
+    newLi.innerText = `Name:${name} Weight: ${weight} Height: ${height} Experience: ${base_experience}`
     playerDeck.appendChild(newLi)
 }
 function dealComputerCard(name, weight, height, base_experience) {
     computerCardAttributes.push(weight, height, base_experience)
     let newLi = document.createElement("li");
-    newLi.innerText = `Name:${name} Weight: ${weight}`
+    newLi.innerText = `Name:${name}`
     computerDeck.appendChild(newLi)
 }
 

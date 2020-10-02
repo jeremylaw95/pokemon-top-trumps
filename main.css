@@ -1,5 +1,9 @@
 body {
    /* background-color: black;*/
+   background-image: url(C:\Users\jezza\fetch-hackathon-xx-lawless-xx\pokémon-pics\background.jpg) ;
+   background-color: #D8EC17;
+   font-size: 20px;
+   text-align: center;
 }
 
 #main-header {
@@ -8,11 +12,12 @@ body {
 
 .button {
     display: none;
+    text-align: center;
 }
 
 .split {
     height: 400px;
-    width: 50%;
+    width: 49%;
     position: relative;
     z-index: 1;
     top: 0;
@@ -25,9 +30,14 @@ body {
 .left {
     left: 0;
    /* background-color: #111;*/
+   float: left;
+  
   };
 
   .right {
     right: 0;
     background-color:red;
+    float: left;
+    padding-top: 3000px
+
   };
