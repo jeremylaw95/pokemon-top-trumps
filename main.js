@@ -11,6 +11,16 @@ let playerDeck = document.querySelector("#player-deck");
 let computerDeck = document.querySelector("#computer-deck");
 
 
+let gamesPlayedData = document.querySelector("#games-played-p");
+let gamesPlayedCount = 0;
+let gamesWonData = document.querySelector("#games-won-p");
+let gamesWonCount = 0;
+let gamesDrawnData = document.querySelector("#games-drawn-p");
+let gamesDrawnCount = 0;
+let gamesLostData = document.querySelector("#games-lost-p");
+let gamesLostcount = 0;
+
+
 // randNumGen()
 // console.log(randNum)
 function shuffle(array) {
@@ -27,15 +37,49 @@ heightButton.addEventListener("click", startGameHeight)
 experienceButton.addEventListener("click", startGameExp)
 
 function startGameWeight() {
-    if(playerCardAttributes[0] < computerCardAttributes[0]) {
-        
+    gamesPlayedCount++;
+    gamesPlayedData.innerText = `Games Played:  ${gamesPlayedCount} `;
+    if (playerCardAttributes[0] < computerCardAttributes[0]) {
+        console.log("player loses");
+        gamesLostcount++;
+        gamesLostData.innerText = `Games Lost: ${gamesLostcount}`;
+    } else if (playerCardAttributes[0] === computerCardAttributes[0]) {
+        gamesDrawnCount++;
+        gamesDrawnData.innerText = `Games Drawn: ${gamesDrawnCount}`;
+    } else {
+        gamesWonCount++;
+        gamesWonData.innerText = `Games Won: ${gamesWonCount}`;
     }
 }
 function startGameHeight() {
-    console.log(playerCardAttributes[0] < computerCardAttributes[0])
+    gamesPlayedCount++;
+    gamesPlayedData.innerText = `Games Played:  ${gamesPlayedCount} `;
+    if (playerCardAttributes[1] < computerCardAttributes[1]) {
+        console.log("player loses");
+        gamesLostcount++;
+        gamesLostData.innerText = `Games Lost: ${gamesLostcount}`;
+    } else if (playerCardAttributes[1] === computerCardAttributes[1]) {
+        gamesDrawnCount++;
+        gamesDrawnData.innerText = `Games Drawn: ${gamesDrawnCount}`;
+    } else {
+        gamesWonCount++;
+        gamesWonData.innerText = `Games Won: ${gamesWonCount}`;
+    }
 }
 function startGameExp() {
-    console.log(playerCardAttributes[0] < computerCardAttributes[0])
+    gamesPlayedCount++;
+    gamesPlayedData.innerText = `Games Played:  ${gamesPlayedCount} `;
+    if (playerCardAttributes[2] < computerCardAttributes[2]) {
+        console.log("player loses");
+        gamesLostcount++;
+        gamesLostData.innerText = `Games Lost: ${gamesLostcount}`;
+    } else if (playerCardAttributes[2] === computerCardAttributes[2]) {
+        gamesDrawnCount++;
+        gamesDrawnData.innerText = `Games Drawn: ${gamesDrawnCount}`;
+    } else {
+        gamesWonCount++;
+        gamesWonData.innerText = `Games Won: ${gamesWonCount}`;
+    }
 }
 
 
