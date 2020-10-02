@@ -44,6 +44,7 @@ function intoBattle() {
     heightButton.style.display = "inline-block"
     //statsButton.style.display = "inline-block"
     experienceButton.style.display = "inline-block"
+    resultHeader.innerText = ""
 }
 
 function outtaBattle() {
