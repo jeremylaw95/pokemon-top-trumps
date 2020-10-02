@@ -8,15 +8,6 @@ Here are some APIs that we can use for free. All but the dad jokes one simply ne
 
 👉 Visit the documentation for the APIs, use JS to request some data and see what you get back. From there, brainstorm what you could make with your knowledge of JavaScript, the DOM and the data you have received.
 
-### Star Wars API
-
-- [Star Wars API](https://swapi.dev/)
-
-```js
-// fetch the first star wars character
-fetch("https://swapi.dev/api/people/1");
-```
-
 ### Pokemon API
 
 - [Pokemon API](https://pokeapi.co/)
@@ -45,6 +36,8 @@ fetch("https://icanhazdadjoke.com/", {
   headers: { accept: "application/json" },
 });
 ```
+
+
 
 ## Step 2 - Break down the problem (20 - 30 mins)
 
