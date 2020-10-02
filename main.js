@@ -61,16 +61,18 @@ function startGameWeight() {
         console.log("player loses");
         gamesLostcount++;
         gamesLostData.innerText = `Games Lost: ${gamesLostcount}`;
-        //resultHeader.innerText = `Player wins with Weight ${}`
+        resultHeader.innerText = "You Lose!"
     } else if (playerCardAttributes[0] === computerCardAttributes[0]) {
         gamesDrawnCount++;
         gamesDrawnData.innerText = `Games Drawn: ${gamesDrawnCount}`;
     } else {
         gamesWonCount++;
         gamesWonData.innerText = `Games Won: ${gamesWonCount}`;
+        resultHeader.innerText = "You Win!"
     }
     outtaBattle()
-
+    playerCardAttributes = []
+    computerCardAttributes = []
 }
 function startGameHeight() {
     gamesPlayedCount++;
@@ -79,14 +81,18 @@ function startGameHeight() {
         console.log("player loses");
         gamesLostcount++;
         gamesLostData.innerText = `Games Lost: ${gamesLostcount}`;
+        resultHeader.innerText = "You Lose!"
     } else if (playerCardAttributes[1] === computerCardAttributes[1]) {
         gamesDrawnCount++;
         gamesDrawnData.innerText = `Games Drawn: ${gamesDrawnCount}`;
     } else {
         gamesWonCount++;
         gamesWonData.innerText = `Games Won: ${gamesWonCount}`;
+        resultHeader.innerText = "You Win!"
     }
     outtaBattle()
+    playerCardAttributes = []
+    computerCardAttributes = []
 }
 function startGameExp() {
     gamesPlayedCount++;
@@ -95,14 +101,18 @@ function startGameExp() {
         console.log("player loses");
         gamesLostcount++;
         gamesLostData.innerText = `Games Lost: ${gamesLostcount}`;
+        resultHeader.innerText = "You Lose!"
     } else if (playerCardAttributes[2] === computerCardAttributes[2]) {
         gamesDrawnCount++;
         gamesDrawnData.innerText = `Games Drawn: ${gamesDrawnCount}`;
     } else {
         gamesWonCount++;
         gamesWonData.innerText = `Games Won: ${gamesWonCount}`;
+        resultHeader.innerText = "You Win!"
     }
     outtaBattle()
+    playerCardAttributes = []
+    computerCardAttributes = []
 }
 
 
@@ -115,6 +125,9 @@ function startGameExp() {
 //     fetchButton.style.display = "inline-block"
 // }
 
+let playerImg = document.querySelector("#player-img")
+let computerImg = document.querySelector("#computer-img")
+
 async function getData() {
 
     intoBattle()
@@ -123,20 +136,28 @@ async function getData() {
     let shuffArr = shuffle(arr)
     console.log(shuffArr)
 
+    // playerImg.src = `pokemon-pics\00${shuffArr[0]}.png`
+    // computerImg.src = `pokemon-pics\00${shuffArr[1]}.png`
+
     for (let i = 0; i < 1; i++) {
         let fetchRequest = await fetch(`https://pokeapi.co/api/v2/pokemon/${shuffArr[i]}`)
         let data = await fetchRequest.json()
         let { name, weight, height, base_experience } = data
+        
         console.log({ name, weight, height, base_experience })
         dealPlayerCard(name, weight, height, base_experience)
+        
     }
     for (let i = 1; i < 2; i++) {
         fetchRequest = await fetch(`https://pokeapi.co/api/v2/pokemon/${shuffArr[i]}`)
         data = await fetchRequest.json()
         let { name, weight, height, base_experience } = data
+        
         console.log({ name, weight, height, base_experience })
         dealComputerCard(name, weight, height, base_experience)
+        
     }
+
 }
 
 let playerCardAttributes = []
