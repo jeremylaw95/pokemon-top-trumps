@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 
 <html>
-
-
-<head>
+  <head>
     <title>PokéTrumps</title>
-    <link rel="stylesheet" href="main.css">
-</head>
+    <link rel="stylesheet" href="main.css" />
+  </head>
 
-
-<body>
-    
-
-    <h1 id = "main-header">PokéTrumps</h1>
-
-    <div id = "pl-div"></div>
-
-    <div id = "cp-div"></div>
+  <body>
+    <h1 id="main-header">PokéTrumps</h1>
 
     <button id="fetch-button">Battle!</button>
 
+    <div id="player-div" class="split left">
+      <ul id="player-deck"></ul>
+    </div>
+
+    <div id="computer-div" class="split right">
+      <ul id="computer-deck"></ul>
+    </div>
 
     <script src="main.js"></script>
-
-</body>
-
-
+  </body>
 </html>
